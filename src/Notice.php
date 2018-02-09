@@ -2,74 +2,61 @@
 
 namespace Draguo\Ding;
 
-class Notice implements Message
+use Draguo\Ding\Message\Message;
+use Draguo\Ding\Message\Text;
+
+class Notice
 {
     use HttpRequest;
 
     const URL = 'https://oapi.dingtalk.com/robot/send?access_token=';
 
     protected $api;
+    protected $users;
 
     public function __construct($token)
     {
-        $this->api = self::URL.$token;
+        if (!$token) {
+            throw new \Exception('invaild token');
+        }
+        $this->api = self::URL . $token;
+
+        return $this;
     }
 
-    public function notice($content, $type = 'text')
+    public function send($message)
     {
-        $result = $this->{$type}($content);
+        if (is_string($message)) {
+            $message = new Text($message);
+        }
 
-        return $this->send($result);
-    }
+        if (!$message instanceof Message) {
+            throw new \Exception('message must instanceof message');
+        }
 
-    public function text($content)
-    {
-        return $this->send([
-                'msgtype' => 'text',
-                'text' => [
-                    'content' => $this->array2str($content),
-                ],
-            ]);
-    }
+        if ($this->users) {
+            $message->setUsers($this->users);
+        }
 
-    public function markdown($content)
-    {
-        return $this->send([
-            'msgtype' => 'markdown',
-            'markdown' => [
-                'title' => is_array($content) ? $content['0'] : substr($content, 0, 5),
-                'text' => $this->array2str($content),
-            ],
-        ]);
-    }
-
-    private function send($data)
-    {
-        return $this->post($this->api, $data);
+        return $this->post($this->api, $message->getParams());
     }
 
     /**
-     * @param $data
-     *
-     * @return array
+     * @param string|array $users
+     * 所有人的传 all
+     * @return $this
      */
-    public function actionCard($data)
+    public function to($users = null)
     {
-        return [
-            'msgtype' => 'actionCard',
-            'actionCard' => [
-                'title' => 2,
-                'text' => $this->array2str($data),
-            ],
-        ];
-    }
-
-    private function array2str($arr)
-    {
-        if (is_array($arr)) {
-            return implode("\n", $arr);
+        if ($users == 'all') {
+            $this->users = 'all';
+            return $this;
         }
 
-        return $arr;
+        if (is_array($users) ){
+            $this->users = implode(',', $users);
+        }
+
+        return $this;
     }
 }
