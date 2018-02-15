@@ -38,7 +38,13 @@ class Notice
             $message->setUsers($this->users);
         }
 
-        return $this->post($this->api, $message->getParams());
+        $response = $this->post($this->api, $message->getParams());
+        var_dump($response);
+        die();
+        if ($response->errcode != 0) {
+            throw new \Exception(json_encode($response));
+        }
+        return $response;
     }
 
     /**
@@ -50,11 +56,12 @@ class Notice
     {
         if ($users == 'all') {
             $this->users = 'all';
-            return $this;
         }
-
+        if (is_string($users)) {
+            $this->users = explode(',', $users);
+        }
         if (is_array($users) ){
-            $this->users = implode(',', $users);
+            $this->users = $users;
         }
 
         return $this;

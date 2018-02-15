@@ -4,21 +4,32 @@ namespace Draguo\Ding\Message;
 
 class Markdown implements Message
 {
+    const TYPE = 'markdown';
+    private $message = [];
+    private $params;
+
+    public function __construct($message=[])
+    {
+        $this->message = $message;
+
+        return $this;
+    }
+
     public function getParams()
     {
-        // TODO: Implement getParams() method.
+        $this->setParams($this->message);
 
-        return $this->send([
-            'msgtype' => 'markdown',
-            'markdown' => [
-                'title' => is_array($content) ? $content['0'] : substr($content, 0, 5),
-                'text' => $this->array2str($content),
-            ],
-        ]);
+        return $this->params;
     }
 
     public function setUsers($users)
     {
-        // TODO: Implement setUsers() method.
+        // todo
+    }
+
+    public function setParams(array $message)
+    {
+        $this->params['msgtype'] = self::TYPE;
+        $this->params['markdown'] = $message;
     }
 }

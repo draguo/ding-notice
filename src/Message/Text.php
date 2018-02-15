@@ -24,17 +24,19 @@ class Text implements Message
 
     public function setUsers($users)
     {
-        // throw or append
-        // TODO: Implement setUsers() method.
+        if ($users == 'all') {
+            $this->params['at'] = ['isAtAll' => true];
+        } else {
+            $this->params['at'] = ['atMobiles' => $users];
+        }
+
     }
 
     public function setParams($message)
     {
-        $this->params = [
-            'msgtype' => self::TYPE,
-            'text' => [
-                'content' => $this->message,
-            ],
+        $this->params['msgtype'] = self::TYPE;
+        $this->params['text'] = [
+            'content' => $message
         ];
     }
 }
