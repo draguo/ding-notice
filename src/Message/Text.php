@@ -35,7 +35,7 @@ class Text implements Message
     public function setParams($message)
     {
         $this->params['msgtype'] = self::TYPE;
-        $this->params['text'] = [
+        $this->params[self::TYPE] = [
             'content' => $message
         ];
     }

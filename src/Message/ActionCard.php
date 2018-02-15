@@ -24,12 +24,12 @@ class ActionCard implements Message
 
     public function setUsers($users)
     {
-        // todo
+        throw new \Exception('not support to user');
     }
 
     public function setParams(array $message)
     {
         $this->params['msgtype'] = self::TYPE;
-        $this->params['actionCard'] = $message;
+        $this->params[self::TYPE] = $message;
     }
 }

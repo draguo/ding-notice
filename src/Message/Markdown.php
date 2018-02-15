@@ -24,12 +24,16 @@ class Markdown implements Message
 
     public function setUsers($users)
     {
-        // todo
+        if ($users == 'all') {
+            $this->params['at'] = ['isAtAll' => true];
+        } else {
+            $this->params['at'] = ['atMobiles' => $users];
+        }
     }
 
     public function setParams(array $message)
     {
         $this->params['msgtype'] = self::TYPE;
-        $this->params['markdown'] = $message;
+        $this->params[self::TYPE] = $message;
     }
 }

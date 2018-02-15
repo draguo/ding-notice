@@ -14,10 +14,15 @@ class Notice
     protected $api;
     protected $users;
 
+    /**
+     * Notice constructor.
+     * @param string $token
+     * @throws \Exception
+     */
     public function __construct($token)
     {
         if (!$token) {
-            throw new \Exception('invaild token');
+            throw new \Exception('invalid token');
         }
         $this->api = self::URL . $token;
 
@@ -39,11 +44,10 @@ class Notice
         }
 
         $response = $this->post($this->api, $message->getParams());
-        var_dump($response);
-        die();
         if ($response->errcode != 0) {
             throw new \Exception(json_encode($response));
         }
+
         return $response;
     }
 
@@ -60,7 +64,7 @@ class Notice
         if (is_string($users)) {
             $this->users = explode(',', $users);
         }
-        if (is_array($users) ){
+        if (is_array($users)) {
             $this->users = $users;
         }
 

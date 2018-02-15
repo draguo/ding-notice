@@ -26,7 +26,7 @@ class FeedCard implements Message
 
     public function setUsers($users)
     {
-        throw new \Exception('can not set user');
+        throw new \Exception('not support to user');
     }
 
     public function setParams(array $message)

@@ -25,12 +25,12 @@ class Link implements Message
 
     public function setUsers($users)
     {
-        throw new \Exception('can not set user');
+        throw new \Exception('not support to user');
     }
 
     public function setParams(array $message)
     {
         $this->params['msgtype'] = self::TYPE;
-        $this->params['link'] = $message;
+        $this->params[self::TYPE] = $message;
     }
 }
