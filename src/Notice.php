@@ -60,6 +60,7 @@ class Notice
     {
         if ($users == 'all') {
             $this->users = 'all';
+            return $this;
         }
         if (is_string($users)) {
             $this->users = explode(',', $users);

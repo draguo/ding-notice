@@ -12,6 +12,11 @@
             "Draguo\\Ding\\": "src"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Draguo\\Ding\\Tests\\": "tests"
+        }
+    },
     "license": "MIT",
     "authors": [
         {

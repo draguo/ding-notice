@@ -10,8 +10,10 @@ trait HttpRequest
     {
         $client = new Client();
 
-        return $client->post($uri, [
+        $result = $client->post($uri, [
             'json' => $params,
         ])->getBody()->getContents();
+        
+        return json_decode($result);
     }
 }
