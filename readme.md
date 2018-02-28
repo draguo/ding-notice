@@ -1,4 +1,9 @@
 钉钉自定义机器人 api 的包装  
+
+<p align="center">
+<a href="https://travis-ci.org/draguo/ding-notice"><img src="https://travis-ci.org/draguo/ding-notice.svg?branch=master" alt="Build Status"></a>
+</p>
+
 ### 请先阅读 [文档](https://open-doc.dingtalk.com/docs/doc.htm?spm=a219a.7629140.0.0.NVWSPm&treeId=257&articleId=105735&docType=1#)
 
 ### 使用
