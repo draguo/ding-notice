@@ -11,7 +11,6 @@ class TextTest extends TestCase
     {
         $result = $this->app->send('test Simple');
 
-        $this->assertEquals(0, $result->errcode);
     }
 
     // use text class
@@ -20,20 +19,17 @@ class TextTest extends TestCase
         $text = new Text('test Text');
         $result = $this->app->send($text);
 
-        $this->assertEquals(0, $result->errcode);
     }
 
     public function testToOneUserText()
     {
         $result = $this->app->to($this->testUser)->send('test Simple');
 
-        $this->assertEquals(0, $result->errcode);
     }
 
     public function testToAll()
     {
         $result = $this->app->to('all')->send('test send all');
 
-        $this->assertEquals(0, $result->errcode);
     }
 }

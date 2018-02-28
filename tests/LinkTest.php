@@ -16,6 +16,5 @@ class LinkTest extends TestCase
         ]);
         $result = $this->app->send($link);
 
-        $this->assertEquals(0, $result->errcode);
     }
 }

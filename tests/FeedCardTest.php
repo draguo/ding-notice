@@ -25,6 +25,5 @@ class FeedCardTest extends TestCase
 
         $result = $this->app->send($feedCard);
 
-        $this->assertEquals(0, $result->errcode);
     }
 }

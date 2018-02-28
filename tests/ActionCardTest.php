@@ -22,7 +22,6 @@ class ActionCardTest extends TestCase
 
         $result = $this->app->send($card);
 
-        $this->assertEquals(0, $result->errcode);
     }
 
     public function testJumpEveryOne()
@@ -48,6 +47,5 @@ class ActionCardTest extends TestCase
 
         $result = $this->app->send($card);
 
-        $this->assertEquals(0, $result->errcode);
     }
 }

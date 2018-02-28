@@ -24,7 +24,6 @@ class MarkdownTest extends TestCase
 
         $result = $this->app->send($markdown);
 
-        $this->assertEquals(0, $result->errcode);
     }
 
     public function testToSomeUser()
@@ -33,7 +32,6 @@ class MarkdownTest extends TestCase
 
         $result = $this->app->to($this->testUser)->send($markdown);
 
-        $this->assertEquals(0, $result->errcode);
     }
 
     public function testToAll()
@@ -42,6 +40,5 @@ class MarkdownTest extends TestCase
 
         $result = $this->app->to('all')->send($markdown);
 
-        $this->assertEquals(0, $result->errcode);
     }
 }
