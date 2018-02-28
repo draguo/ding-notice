@@ -17,18 +17,17 @@ class Notice
     /**
      * Notice constructor.
      * @param string $token
-     * @throws \Exception
      */
-    public function __construct($token)
+    public function __construct($token = null)
     {
-        if (!$token) {
-            throw new \Exception('invalid token');
-        }
         $this->api = self::URL . $token;
-
-        return $this;
     }
 
+    /**
+     * @param $message
+     * @return mixed
+     * @throws \Exception
+     */
     public function send($message)
     {
         if (is_string($message)) {

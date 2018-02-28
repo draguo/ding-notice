@@ -2,40 +2,13 @@
 
 namespace Draguo\Ding\Message;
 
-class Text implements Message
+class Text extends Message
 {
-    const TYPE = 'text';
-    private $message;
-    private $params;
+    protected $type = 'text';
 
-    public function __construct($message='')
+    protected function formatParams($message)
     {
-        $this->message = $message;
-
-        return $this;
-    }
-
-    public function getParams()
-    {
-        $this->setParams($this->message);
-
-        return $this->params;
-    }
-
-    public function setUsers($users)
-    {
-        if ($users == 'all') {
-            $this->params['at'] = ['isAtAll' => true];
-        } else {
-            $this->params['at'] = ['atMobiles' => $users];
-        }
-
-    }
-
-    public function setParams($message)
-    {
-        $this->params['msgtype'] = self::TYPE;
-        $this->params[self::TYPE] = [
+        return [
             'content' => $message
         ];
     }

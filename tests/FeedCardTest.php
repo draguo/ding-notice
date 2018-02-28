@@ -2,12 +2,10 @@
 
 namespace Draguo\Ding\Tests;
 
-
 use Draguo\Ding\Message\FeedCard;
 
 class FeedCardTest extends TestCase
 {
-
     public function testSend()
     {
         $feedCard = new FeedCard([

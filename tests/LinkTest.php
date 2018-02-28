@@ -2,7 +2,6 @@
 
 namespace Draguo\Ding\Tests;
 
-
 use Draguo\Ding\Message\Link;
 
 class LinkTest extends TestCase

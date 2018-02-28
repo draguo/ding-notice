@@ -2,7 +2,6 @@
 
 namespace Draguo\Ding\Tests;
 
-
 use Draguo\Ding\Message\ActionCard;
 
 class ActionCardTest extends TestCase
