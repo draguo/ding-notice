@@ -12,8 +12,8 @@ class TestCase extends PHPUnitTestCase
 
     public function __construct()
     {
-        $token = '';
-        $this->testUser = '';
+        $token = '4dc5ab05357974596a70ea5b34f62bb05b62ead9f299de556f02eeb7fca9c37c';
+        $this->testUser = '18888888888';
         $app = new Notice($token);
         $this->app = $app;
     }

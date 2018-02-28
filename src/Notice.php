@@ -43,9 +43,10 @@ class Notice
         }
 
         $response = $this->post($this->api, $message->getParams());
-        if ($response->errcode != 0) {
-            throw new \Exception(json_encode($response));
-        }
+//        if ($response->errcode != 0) {
+//
+//            throw new \Exception(json_encode($response));
+//        }
 
         return $response;
     }
