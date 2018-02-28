@@ -23,7 +23,7 @@ class FeedCardTest extends TestCase
             ]
         ]);
 
-        $result = $this->app->send($feedCard);
+        $this->app->send($feedCard);
 
     }
 }

@@ -20,7 +20,7 @@ class ActionCardTest extends TestCase
             "singleURL" => "https://www.dingtalk.com/"
         ]);
 
-        $result = $this->app->send($card);
+        $this->app->send($card);
 
     }
 
@@ -45,7 +45,7 @@ class ActionCardTest extends TestCase
             ]
         ]);
 
-        $result = $this->app->send($card);
+        $this->app->send($card);
 
     }
 }

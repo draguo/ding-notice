@@ -14,7 +14,8 @@ class LinkTest extends TestCase
             "picUrl" => "https://img.alicdn.com/tfs/TB1VfZtaUgQMeJjy0FeXXXOEVXa-498-193.png",
             "messageUrl" => "https://mp.weixin.qq.com"
         ]);
-        $result = $this->app->send($link);
+
+        $this->app->send($link);
 
     }
 }

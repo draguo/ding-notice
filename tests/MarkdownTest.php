@@ -22,7 +22,7 @@ class MarkdownTest extends TestCase
     {
         $markdown = $this->generateContent();
 
-        $result = $this->app->send($markdown);
+        $this->app->send($markdown);
 
     }
 
@@ -30,7 +30,7 @@ class MarkdownTest extends TestCase
     {
         $markdown = $this->generateContent();
 
-        $result = $this->app->to($this->testUser)->send($markdown);
+        $this->app->to($this->testUser)->send($markdown);
 
     }
 
@@ -38,7 +38,7 @@ class MarkdownTest extends TestCase
     {
         $markdown = $this->generateContent();
 
-        $result = $this->app->to('all')->send($markdown);
+        $this->app->to('all')->send($markdown);
 
     }
 }
